@@ -1,0 +1,14 @@
+# Camp 1 Express
+Options -Indexes
+DirectoryIndex index.php
+
+# block direct access to internal files
+<FilesMatch "^(config\.php|config\.sample\.php|README\.md|\.git.*)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 403 ^/?(.*/)?(inc|data)/
+
+# force HTTPS (uncomment after SSL is active on Hostatom)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
